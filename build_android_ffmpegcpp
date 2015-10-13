@@ -1,0 +1,75 @@
+#!/bin/bash
+
+#separating NDK_ROOT and NDK_BIN_ROOT for cygwin builds as ndk can't parse cygwin paths (like /cygdrive)
+#example:
+#export NDK_ROOT=d:/...
+#export NDK_BIN_ROOT=/cygdrive/c/...
+
+
+if [ -z "$NDK_ROOT" ]; then
+	echo "You must define NDK_ROOT"
+	#and NDK_BIN_ROOT before building."
+	echo "for example:"
+	echo "export NDK_ROOT=/dev/android-ndk-r10d"
+	#echo "export NDK_BIN_ROOT=/dev/android-ndk-r10d"
+	exit 1
+fi
+
+if [ -z "$GYP_PATH" ]; then
+	echo "You must define GYP_PATH"
+	echo "for example:"
+	echo "export GYP_PATH=/dev/gyp"
+	exit 1
+fi
+
+
+if [ -z "$NDK_BIN_ROOT" ]; then
+export NDK_BIN_ROOT=$NDK_ROOT
+fi
+
+export TOOLCHAIN=$NDK_BIN_ROOT/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin
+
+export PATH=$TOOLCHAIN:$PATH
+
+
+     export AR=$TOOLCHAIN/arm-linux-androideabi-ar
+     export CC=$TOOLCHAIN/arm-linux-androideabi-gcc
+    export CXX=$TOOLCHAIN/arm-linux-androideabi-g++
+#  export LINK=$TOOLCHAIN/arm-linux-androideabi-g++
+     export AS=$TOOLCHAIN/arm-linux-androideabi-as
+     export LD=$TOOLCHAIN/arm-linux-androideabi-ld
+#    export NM=$TOOLCHAIN/arm-linux-androideabi-nm
+ export RANLIB=$TOOLCHAIN/arm-linux-androideabi-ranlib
+
+export GYP_CROSSCOMPILE=1
+
+
+
+export BASESYSROOT=$NDK_ROOT/platforms/android-17/arch-arm
+
+export SYSROOT=$BASESYSROOT
+export CPPPATH=$BASESYSROOT/usr/include
+export LIBPATH=$BASESYSROOT/usr/lib/
+export PKG_CONFIG_PATH=$BASESYSROOT/usr/lib/pkgconfig/
+
+
+
+export BASESTL=$NDK_ROOT/sources/cxx-stl/gnu-libstdc++/4.9
+
+export CPPPATH1=$BASESTL/include
+export CPPPATH2=$BASESTL/libs/armeabi/include
+export LIBPATH1=$BASESTL/libs/armeabi
+
+export CPUFLAGS=" -mfloat-abi=softfp -mfpu=neon -marm -march=armv7-a"
+
+export CPPFLAGS=" --sysroot=$SYSROOT -I$CPPPATH -I$CPPPATH1 -I$CPPPATH2 -std=gnu++11 -D__GXX_EXPERIMENTAL_CXX0X__ -Wno-attributes -fpermissive -fexceptions $CPUFLAGS "
+export CXXFLAGS=" --sysroot=$SYSROOT -I$CPPPATH -I$CPPPATH1 -I$CPPPATH2 -std=gnu++11 -D__GXX_EXPERIMENTAL_CXX0X__ -Wno-attributes -fpermissive -fexceptions $CPUFLAGS "
+export CFLAGS=" --sysroot=$SYSROOT -I$CPPPATH  -I$CPPPATH1 -I$CPPPATH2 -std=gnu99 $CPUFLAGS"
+
+export LINKER_OPTS="--sysroot=$SYSROOT "
+
+export LDFLAGS="-L$LIBPATH -L$LIBPATH1 -lgnustl_shared --sysroot=$SYSROOT " 
+
+$GYP_PATH ffmpegcpp.gyp -Dtarget_arch=arm -DOS=android -Dos_posix=1 -Dmsan=0 -Duse_system_yasm=1 -Darm_neon=1 --depth=. -f make --no-duplicate-basename-check --generator-output=./build.android/
+
+make -C ./build.android/ V=1 -j 5

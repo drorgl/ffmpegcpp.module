@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{9F729E2E-4ACC-43A4-98A1-081D2341564E}</ProjectGuid>
+    <RootNamespace>ffmpegcpp</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>./;./includes/;D:\Projects\_Common\ffmpeg\include;D:\Projects\_Modules\opencv_2.4.9\build\include;D:\Projects\_Modules\alsa-lib\include;D:\Projects\_Modules\v4l-utils\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>FFMPEGCPP_DLL_EXPORT;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>D:\Projects\_Common\ffmpeg\lib;D:\Projects\_Modules\opencv_2.4.9\build\x86\vc12\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opencv_calib3d249.lib;opencv_calib3d249d.lib;opencv_contrib249.lib;opencv_contrib249d.lib;opencv_core249.lib;opencv_core249d.lib;opencv_features2d249.lib;opencv_features2d249d.lib;opencv_flann249.lib;opencv_flann249d.lib;opencv_gpu249.lib;opencv_gpu249d.lib;opencv_highgui249.lib;opencv_highgui249d.lib;opencv_imgproc249.lib;opencv_imgproc249d.lib;opencv_legacy249.lib;opencv_legacy249d.lib;opencv_ml249.lib;opencv_ml249d.lib;opencv_nonfree249.lib;opencv_nonfree249d.lib;opencv_objdetect249.lib;opencv_objdetect249d.lib;opencv_ocl249.lib;opencv_ocl249d.lib;opencv_photo249.lib;opencv_photo249d.lib;opencv_stitching249.lib;opencv_stitching249d.lib;opencv_superres249.lib;opencv_superres249d.lib;opencv_ts249.lib;opencv_ts249d.lib;opencv_video249.lib;opencv_video249d.lib;opencv_videostab249.lib;opencv_videostab249d.lib;avdevice.lib;avcodec.lib;avfilter.lib;avformat.lib;avutil.lib;swresample.lib;swscale.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>./;./includes/;D:\Projects\_Common\ffmpeg64\include;D:\Projects\_Modules\opencv_2.4.9\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>FFMPEGCPP_DLL_EXPORT;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <EnablePREfast>false</EnablePREfast>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>D:\Projects\_Common\ffmpeg64\lib;D:\Projects\_Modules\opencv_2.4.9\build\x64\vc12\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opencv_calib3d249d.lib;opencv_contrib249d.lib;opencv_core249d.lib;opencv_features2d249d.lib;opencv_flann249d.lib;opencv_gpu249d.lib;opencv_highgui249d.lib;opencv_imgproc249d.lib;opencv_legacy249d.lib;opencv_ml249d.lib;opencv_nonfree249d.lib;opencv_objdetect249d.lib;opencv_ocl249d.lib;opencv_photo249d.lib;opencv_stitching249d.lib;opencv_superres249d.lib;opencv_ts249d.lib;opencv_video249d.lib;opencv_videostab249d.lib;avdevice.lib;avcodec.lib;avfilter.lib;avformat.lib;avutil.lib;swresample.lib;swscale.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>./;./includes/;D:\Projects\_Common\ffmpeg\include;D:\Projects\_Modules\opencv_2.4.9\build\include;D:\Projects\_Modules\alsa-lib\include;D:\Projects\_Modules\v4l-utils\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);FFMPEGCPP_DLL;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>D:\Projects\_Common\ffmpeg\lib;D:\Projects\_Modules\opencv_2.4.9\build\x86\vc12\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);opencv_calib3d249.lib;opencv_contrib249.lib;opencv_core249.lib;opencv_features2d249.lib;opencv_flann249.lib;opencv_gpu249.lib;opencv_highgui249.lib;opencv_imgproc249.lib;opencv_legacy249.lib;opencv_ml249.lib;opencv_nonfree249.lib;opencv_objdetect249.lib;opencv_ocl249.lib;opencv_photo249.lib;opencv_stitching249.lib;opencv_superres249.lib;opencv_ts249.lib;opencv_video249.lib;opencv_videostab249.lib;avdevice.lib;avcodec.lib;avfilter.lib;avformat.lib;avutil.lib;swresample.lib;swscale.lib</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <AdditionalIncludeDirectories>./;./includes/;D:\Projects\_Common\ffmpeg64\include;D:\Projects\_Modules\opencv_2.4.9\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>opencv_calib3d249.lib;opencv_contrib249.lib;opencv_core249.lib;opencv_features2d249.lib;opencv_flann249.lib;opencv_gpu249.lib;opencv_highgui249.lib;opencv_imgproc249.lib;opencv_legacy249.lib;opencv_ml249.lib;opencv_nonfree249.lib;opencv_objdetect249.lib;opencv_ocl249.lib;opencv_photo249.lib;opencv_stitching249.lib;opencv_superres249.lib;opencv_ts249.lib;opencv_video249.lib;opencv_videostab249.lib;zlib.lib;avdevice.lib;avcodec.lib;avfilter.lib;avformat.lib;avutil.lib;swresample.lib;swscale.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Projects\_Common\ffmpeg64\lib;D:\Projects\_Modules\opencv_2.4.9\build\x64\vc12\staticlib</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="includes\bitstreamfilter.h" />
+    <ClInclude Include="includes\codec.h" />
+    <ClInclude Include="includes\datastructures.h" />
+    <ClInclude Include="includes\decoder.h" />
+    <ClInclude Include="includes\dictionary.h" />
+    <ClInclude Include="includes\encoder.h" />
+    <ClInclude Include="includes\exports.h" />
+    <ClInclude Include="includes\ffmpeg.h" />
+    <ClInclude Include="includes\ffmpeg_exception.h" />
+    <ClInclude Include="includes\formatcontext.h" />
+    <ClInclude Include="includes\frame.h" />
+    <ClInclude Include="includes\memorycontext.h" />
+    <ClInclude Include="includes\packet.h" />
+    <ClInclude Include="includes\stdafx.h" />
+    <ClInclude Include="includes\stream.h" />
+    <ClInclude Include="includes\swscale.h" />
+    <ClInclude Include="src\bitstreamfilter_pimpl.h" />
+    <ClInclude Include="src\codec_pimpl.h" />
+    <ClInclude Include="src\datastructures_conversion.h" />
+    <ClInclude Include="src\decoder_pimpl.h" />
+    <ClInclude Include="src\dictionary_pimpl.h" />
+    <ClInclude Include="src\ffmpeg_includes.h" />
+    <ClInclude Include="src\formatcontext_pimpl.h" />
+    <ClInclude Include="src\frame_pimpl.h" />
+    <ClInclude Include="src\iobuffer.h" />
+    <ClInclude Include="src\memorycontext_pimpl.h" />
+    <ClInclude Include="src\packet_pimpl.h" />
+    <ClInclude Include="src\stream_pimpl.h" />
+    <ClInclude Include="src\stringutils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\bitstreamfilter.cpp" />
+    <ClCompile Include="src\codec.cpp" />
+    <ClCompile Include="src\datastructures.cpp" />
+    <ClCompile Include="src\decoder.cpp" />
+    <ClCompile Include="src\dictionary.cpp" />
+    <ClCompile Include="src\encoder.cpp" />
+    <ClCompile Include="src\ffmpeg.cpp" />
+    <ClCompile Include="src\ffmpeg_exception.cpp" />
+    <ClCompile Include="src\formatcontext.cpp" />
+    <ClCompile Include="src\frame.cpp" />
+    <ClCompile Include="src\iobuffer.cpp" />
+    <ClCompile Include="src\memorycontext.cpp" />
+    <ClCompile Include="src\packet.cpp" />
+    <ClCompile Include="src\stream.cpp" />
+    <ClCompile Include="src\swscale.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

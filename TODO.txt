@@ -1,0 +1,24 @@
+v - list input formats
+v	- find out what flags mean
+v - list output formats
+v	- find out what flags mean
+V- list encoding codecs
+
+V- list decoding codecs
+v		(av_codec_next)
+
+v- list input/output devices is via
+v	- listInputFormats/listOutputFormats with filter on NOFILE flag;
+
+V - delete all assignment operators
+
+
+avcodec_descriptor_next
+
+av_bitstream_filter_next
+avio_enum_protocols
+avfilter_next
+av_pix_fmt_desc_next
+
+add subtitle handling
+add seek 
