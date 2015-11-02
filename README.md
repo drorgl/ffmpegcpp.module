@@ -12,6 +12,10 @@ beginner ffmpeg users often struggle, when should each structure initialized, wh
 
 #### compiling with gyp
 ```
+
+compiling for win64 / vs2015:
+gyp ffmpegcpp.gyp -Dtarget_arch=x64 -Duse_system_yasm=0 -Dos_posix=0 -Dmsan=0 -Dclang=0 -Dbuildtype=debug --depth=. -f msvs -G msvs_version=2015 --no-duplicate-basename-check --generator-output=./build.vs2015/
+
 compiling for win32:
 gyp ffmpegcpp.gyp -Dtarget_arch=ia32 -Duse_system_yasm=0 -Dos_posix=0 -Dmsan=0 -Dclang=0 -Dbuildtype=Official --depth=. -f msvs -G msvs_version=2013 --no-duplicate-basename-check --generator-output=./build.vs2013/
 

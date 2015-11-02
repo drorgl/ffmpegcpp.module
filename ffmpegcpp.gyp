@@ -28,21 +28,31 @@
 				  ['target_arch=="x64"', {
 					'msvs_configuration_platform': 'x64',
 				  }],
-				],
-				'defines':[
-					'DEBUG',
-				],
-				'msvs_settings': {				
-					'VCLinkerTool' : {
-						'GenerateDebugInformation' : 'true',
-						'conditions':[
-							['target_arch=="x64"', {
-								'TargetMachine' : 17 # /MACHINE:X64
-							}],
-						],
-						
+				  ['1==1',{
+
+					'defines':[
+						'DEBUG',
+					],
+					'msvs_settings': {		
+						'VCCLCompilerTool': {
+						  'WholeProgramOptimization' : 'false',
+						  'AdditionalOptions': ['/GL-','/w'], #['/wd4244' ,'/wd4018','/wd4133' ,'/wd4090'] #GL- was added because the forced optimization coming from node-gyp is disturbing the weird coding style from ffmpeg.
+						  'RuntimeLibrary': 3, # dll debug
+						},
+						'VCLinkerTool' : {
+							'GenerateDebugInformation' : 'true',
+							'conditions':[
+								['target_arch=="x64"', {
+									'TargetMachine' : 17 # /MACHINE:X64
+								}],
+							],
+							
+						}
 					}
-				}
+				
+				  }],
+				],
+				
 			},
 			'Release':{
 				'conditions': [
@@ -50,7 +60,12 @@
 					'msvs_configuration_platform': 'x64',
 				  }],
 				],
-				'msvs_settings': {				
+				'msvs_settings': {			
+					'VCCLCompilerTool': {
+						'WholeProgramOptimization' : 'false',
+						'AdditionalOptions': ['/GL-','/w'], #['/wd4244' ,'/wd4018','/wd4133' ,'/wd4090'] #GL- was added because the forced optimization coming from node-gyp is disturbing the weird coding style from ffmpeg.
+						'RuntimeLibrary': 2, # dll release
+					},
 					'VCLinkerTool' : {
 						'conditions':[
 							['target_arch=="x64"', {
