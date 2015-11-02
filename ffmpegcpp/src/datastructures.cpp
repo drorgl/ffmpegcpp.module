@@ -239,36 +239,31 @@ namespace ffmpegcpp
 		return conversion::convertFrom(av_get_pix_fmt(pixfmt_name.c_str()));
 	}
 
-	std::string getMediaTypeName(mediaType media)
+	static std::map<mediaType, std::string> createMediaTypesToStringMap()
 	{
-		switch (media){
-		case mediaType::attachment:
-			return "attachment";
-			break;
-		case mediaType::data:
-			return "data";
-			break;
-		case mediaType::nb:
-			return "nb";
-			break;
-		case mediaType::subtitle:
-			return "subtitle";
-			break;
-		case mediaType::unknown:
-			return "unknown";
-			break;
-		case mediaType::audio:
-			return "audio";
-			break;
-		case mediaType::video:
-			return "video";
-			break;
-		default:
-			throw ffmpeg_exception("media type not implemented");
-		}
+		std::map<mediaType, std::string> map;
+		map[mediaType::attachment] = "attachment";
+		map[mediaType::audio] =  "audio";
+		map[mediaType::data] = "data";
+		map[mediaType::nb] =  "nb";
+		map[mediaType::subtitle] =  "subtitle";
+		map[mediaType::unknown] = "unknown";
+		map[mediaType::video] =  "video";
+		return map;
 	}
 
-	static std::map<std::string, mediaType> createMediaTypeMap()
+	static std::map<mediaType, std::string> mediaTypesToStringMap = createMediaTypesToStringMap();
+
+	std::string getMediaTypeName(mediaType media)
+	{
+		if (!mediaTypesToStringMap.count(media)) {
+			throw ffmpeg_exception("media type not implemented");
+		}
+
+		return mediaTypesToStringMap[media];
+	}
+
+	static std::map<std::string, mediaType> createMediaTypesFromStringMap()
 	{
 		std::map<std::string, mediaType> map;
 		map["attachment"] = mediaType::attachment;
@@ -281,11 +276,15 @@ namespace ffmpegcpp
 		return map;
 	}
 
-	static std::map<std::string, mediaType> mediaTypeMap = createMediaTypeMap();
+	static std::map<std::string, mediaType> mediaTypesFromStringMap = createMediaTypesFromStringMap();
 
 	mediaType getMediaTypeByName(std::string media)
 	{
-		return mediaTypeMap[media];
+		if (!mediaTypesFromStringMap.count(media)) {
+			throw ffmpeg_exception("media type not found");
+		}
+
+		return mediaTypesFromStringMap[media];
 	}
 
 	codec_capabilities operator | (codec_capabilities x, codec_capabilities y)
