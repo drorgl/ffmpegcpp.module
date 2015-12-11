@@ -12,6 +12,10 @@
 #ifndef _FFMPEGCPP_STREAM_H_
 #define _FFMPEGCPP_STREAM_H_
 
+//ignore warning: type qualifiers ignored on function return type
+#pragma GCC diagnostic ignored "-Wignored-qualifiers"
+
+
 #include <string>
 #include <vector>
 #include <memory>

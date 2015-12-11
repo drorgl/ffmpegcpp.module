@@ -12,6 +12,10 @@
 #ifndef _DATA_STRUCTURES_CONVERSION_
 #define _DATA_STRUCTURES_CONVERSION_
 
+//ignore warning: type qualifiers ignored on function return type
+#pragma GCC diagnostic ignored "-Wignored-qualifiers"
+
+
 #include "ffmpeg_includes.h"
 
 #include "../includes/datastructures.h"

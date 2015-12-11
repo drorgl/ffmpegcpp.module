@@ -12,6 +12,8 @@
 #ifndef _FFMPEGCPP_CODEC_H_
 #define _FFMPEGCPP_CODEC_H_
 
+//ignore warning: type qualifiers ignored on function return type
+#pragma GCC diagnostic ignored "-Wignored-qualifiers"
 
 #include "exports.h"
 #include "ffmpeg_exception.h"
