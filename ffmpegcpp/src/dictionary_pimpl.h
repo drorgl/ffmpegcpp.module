@@ -88,6 +88,10 @@ namespace ffmpegcpp
 				return option_type::STRING;
 			case AVOptionType::AV_OPT_TYPE_VIDEO_RATE:
 				return option_type::VIDEO_RATE;
+			case AVOptionType::AV_OPT_TYPE_DICT:
+				return option_type::DICT;
+			case AVOptionType::AV_OPT_TYPE_CHANNEL_LAYOUT:
+				return option_type::CHANNEL_LAYOUT;
 			}
 			assert(false && "AVOptionType enum value not implemented, returning string as default");
 			return option_type::STRING;

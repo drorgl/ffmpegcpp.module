@@ -86,6 +86,8 @@ namespace ffmpegcpp
 		retval.push_back(std::tuple<option_type, std::string>(option_type::STRING, "string"));
 		retval.push_back(std::tuple<option_type, std::string>(option_type::VIDEO_RATE, "video_rate"));
 		retval.push_back(std::tuple<option_type, std::string>(option_type::VOPTIONS, "voptions"));
+		retval.push_back(std::tuple<option_type, std::string>(option_type::DICT, "dict"));
+		retval.push_back(std::tuple<option_type, std::string>(option_type::CHANNEL_LAYOUT, "channel_layout"));
 
 		return retval;
 	}

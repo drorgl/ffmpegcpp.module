@@ -495,7 +495,9 @@ namespace ffmpegcpp
 		VIDEO_RATE,
 		DURATION,
 		COLOR,
-		VOPTIONS
+		VOPTIONS,
+		DICT,
+		CHANNEL_LAYOUT
 	};
 	FFMPEGCPP_API std::string getOptionTypeName(option_type opttype);
 	FFMPEGCPP_API option_type getOptionTypeByName(std::string opttype);

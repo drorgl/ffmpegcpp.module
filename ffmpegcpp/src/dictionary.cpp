@@ -123,6 +123,8 @@ namespace ffmpegcpp
 			case option_type::RATIONAL:
 				o.default_val = rational(avopt->default_val.q.num, avopt->default_val.q.den);
 				break;
+			//TODO: implement dict
+			//TODO: implement channel_layout
 			default:
 				assert(false && "Not Implemented!!");
 			}
