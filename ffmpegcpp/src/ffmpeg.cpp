@@ -424,7 +424,7 @@ namespace ffmpegcpp
 		dict->set("list_devices", "true");
 		auto rawlist = ExecuteCommand("dummy", deviceFormat, dict);
 
-		enum class devicetype type = devicetype::unknown;
+		auto type = devicetype::unknown;
 
 
 		//parse rawlist
