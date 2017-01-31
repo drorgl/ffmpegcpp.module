@@ -85,6 +85,6 @@ namespace ffmpegcpp
 		FFMPEGCPP_API static std::vector<std::shared_ptr<device>> ListInputDevices();
 	};
 
-}
+};
 
 #endif
