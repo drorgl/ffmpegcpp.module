@@ -9,8 +9,8 @@
 
 {
 	'variables':{
-		#'library' : 'static_library',
-		'library' : 'shared_library',
+		'library' : 'static_library',
+		#'library' : 'shared_library',
 	},
 	'target_defaults': {
 		'msvs_settings': {
@@ -18,7 +18,11 @@
 			# object files to same directory... even if they have the same name!
 			'VCCLCompilerTool': {
 			  'ObjectFile': '$(IntDir)/%(RelativeDir)/',
-			  'AdditionalOptions': [ '/EHsc', '/wd4244']
+			  #'AdditionalOptions': [ '/EHsc', '/wd4244']
+			  'WarningLevel': 0,
+			  'WholeProgramOptimization': 'false',
+			  'AdditionalOptions': ['/EHsc'],
+			  'ExceptionHandling' : 1, #/EHsc
 			},
 			
 		},
@@ -35,8 +39,12 @@
 					],
 					'msvs_settings': {		
 						'VCCLCompilerTool': {
-						  'WholeProgramOptimization' : 'false',
-						  'AdditionalOptions': ['/GL-','/w'], #['/wd4244' ,'/wd4018','/wd4133' ,'/wd4090'] #GL- was added because the forced optimization coming from node-gyp is disturbing the weird coding style from ffmpeg.
+						  #'WholeProgramOptimization' : 'false',
+						  #'AdditionalOptions': ['/GL-','/w'], #['/wd4244' ,'/wd4018','/wd4133' ,'/wd4090'] #GL- was added because the forced optimization coming from node-gyp is disturbing the weird coding style from ffmpeg.
+						  'WarningLevel': 0,
+						  'WholeProgramOptimization': 'false',
+						  'AdditionalOptions': ['/EHsc'],
+						  'ExceptionHandling' : 1, #/EHsc
 						  'RuntimeLibrary': 3, # dll debug
 						},
 						'VCLinkerTool' : {
@@ -63,8 +71,12 @@
 				'msvs_settings': {			
 					'VCCLCompilerTool': {
 						'WholeProgramOptimization' : 'false',
-						'AdditionalOptions': ['/GL-','/w'], #['/wd4244' ,'/wd4018','/wd4133' ,'/wd4090'] #GL- was added because the forced optimization coming from node-gyp is disturbing the weird coding style from ffmpeg.
-						'RuntimeLibrary': 2, # dll release
+						#'AdditionalOptions': ['/GL-','/w'], #['/wd4244' ,'/wd4018','/wd4133' ,'/wd4090'] #GL- was added because the forced optimization coming from node-gyp is disturbing the weird coding style from ffmpeg.
+						'WarningLevel': 0,
+						  'WholeProgramOptimization': 'false',
+						  'AdditionalOptions': ['/EHsc'],
+						  'ExceptionHandling' : 1, #/EHsc
+						  'RuntimeLibrary': 2, # dll release
 					},
 					'VCLinkerTool' : {
 						'conditions':[
