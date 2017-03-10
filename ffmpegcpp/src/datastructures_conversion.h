@@ -16,7 +16,10 @@
 #pragma GCC diagnostic ignored "-Wignored-qualifiers"
 
 
-#include "ffmpeg_includes.h"
+extern "C" {
+	#include <libavutil/samplefmt.h>
+	#include <libavutil/pixdesc.h>
+}
 
 #include "../includes/datastructures.h"
 

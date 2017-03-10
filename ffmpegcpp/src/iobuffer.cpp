@@ -13,8 +13,6 @@
 
 #include <cassert>
 
-#include "ffmpeg_includes.h"
-
 namespace ffmpegcpp{
 	const AVClass iobuffer::_iobuffercls = {
 		"iobuffer", av_default_item_name

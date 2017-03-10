@@ -16,7 +16,9 @@
 
 #include "packet.h"
 
-#include "ffmpeg_includes.h"
+extern "C" {
+	#include <libavcodec/avcodec.h>
+}
 
 namespace ffmpegcpp
 {

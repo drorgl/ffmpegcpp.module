@@ -16,7 +16,9 @@
 
 #include "frame.h"
 
-#include "ffmpeg_includes.h"
+extern "C" {
+	#include <libavutil/frame.h>
+}
 
 namespace ffmpegcpp
 {

@@ -13,7 +13,6 @@
 
 #include "frame.h"
 
-#include "ffmpeg_includes.h"
 #include "dictionary_pimpl.h"
 #include "frame_pimpl.h"
 #include "formatcontext_pimpl.h"

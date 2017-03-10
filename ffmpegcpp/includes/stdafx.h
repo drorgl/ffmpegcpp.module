@@ -13,7 +13,7 @@
 #define _FFMPEGCPP_STDAFX_H_
 
 
-#include <memory>
+//#include <memory>
 
 
 #endif

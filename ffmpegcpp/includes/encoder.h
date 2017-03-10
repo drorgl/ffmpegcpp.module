@@ -17,9 +17,6 @@
 #include "ffmpeg_exception.h"
 
 #include <memory>
-#include <string>
-
-//#include <opencv2/core.hpp>
 
 namespace ffmpegcpp
 {

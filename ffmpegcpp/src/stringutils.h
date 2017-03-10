@@ -17,6 +17,7 @@
 #include <cstdarg>
 #include <cstring>
 #include <numeric>
+#include <cctype>
 
 #include <iostream>
 

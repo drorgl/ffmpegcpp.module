@@ -13,7 +13,6 @@
 #define _FFMPEGCPP_MEMORYCONTEXT_PIMPL_H_
 
 #include "ffmpeg.h"
-#include "ffmpeg_includes.h"
 
 #include "memorycontext.h"
 

@@ -16,7 +16,9 @@
 
 #include "dictionary.h"
 
-#include "ffmpeg_includes.h"
+extern "C" {
+	#include <libavutil/opt.h>
+}
 
 #include <unordered_map>
 

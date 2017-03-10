@@ -12,7 +12,10 @@
 #ifndef _FFMPEGCPP_BITSTREAMFILTER_PIMPL_H_
 #define _FFMPEGCPP_BITSTREAMFILTER_PIMPL_H_
 
-#include "ffmpeg_includes.h"
+extern "C" {
+	#include <libavcodec/avcodec.h>
+	#include <libavutil/pixdesc.h>
+}
 #include "../includes/bitstreamfilter.h"
 
 

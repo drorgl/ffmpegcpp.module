@@ -13,7 +13,6 @@
 
 #include "decoder.h"
 
-#include "ffmpeg_includes.h"
 #include "decoder_pimpl.h"
 #include "codec_pimpl.h"
 #include "dictionary_pimpl.h"

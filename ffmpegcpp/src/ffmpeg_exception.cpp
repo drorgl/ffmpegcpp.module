@@ -13,7 +13,9 @@
 
 #include "ffmpeg.h"
 
-#include "ffmpeg_includes.h"
+extern "C" {
+	#include <libavutil/error.h>
+}
 
 namespace ffmpegcpp
 {

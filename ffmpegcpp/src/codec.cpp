@@ -13,7 +13,6 @@
 
 #include "codec.h"
 
-#include "ffmpeg_includes.h"
 #include "codec_pimpl.h"
 #include "stream_pimpl.h"
 #include "dictionary_pimpl.h"

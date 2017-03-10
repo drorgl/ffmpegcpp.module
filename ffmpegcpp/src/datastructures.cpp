@@ -19,7 +19,9 @@
 #include "../includes/datastructures.h"
 #include "datastructures_conversion.h"
 
-#include "ffmpeg_includes.h"
+extern "C" {
+	#include <libavutil/channel_layout.h>
+}
 
 #include <numeric>
 #include "stringutils.h"

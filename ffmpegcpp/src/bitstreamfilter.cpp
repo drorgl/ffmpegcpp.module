@@ -17,9 +17,7 @@
 
 #include "codec_pimpl.h"
 
-#include "ffmpeg_includes.h"
 #include "packet_pimpl.h"
-
 
 #include "datastructures_conversion.h"
 

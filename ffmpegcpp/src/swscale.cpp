@@ -12,7 +12,11 @@
 #include "stdafx.h"
 
 #include "ffmpeg.h"
-#include "ffmpeg_includes.h"
+extern "C" {
+	#include <libswscale/swscale.h>
+	#include <libswresample/swresample.h>
+}
+
 #include "datastructures_conversion.h"
 
 

@@ -13,8 +13,6 @@
 
 #include "dictionary.h"
 
-
-#include "ffmpeg_includes.h"
 #include "dictionary_pimpl.h"
 
 namespace ffmpegcpp

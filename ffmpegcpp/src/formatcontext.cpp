@@ -13,7 +13,6 @@
 
 #include "formatcontext.h"
 
-#include "ffmpeg_includes.h"
 #include "formatcontext_pimpl.h"
 #include "memorycontext_pimpl.h"
 #include "bitstreamfilter_pimpl.h"

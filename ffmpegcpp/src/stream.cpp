@@ -15,7 +15,6 @@
 
 #include "stream.h"
 
-#include "ffmpeg_includes.h"
 #include "formatcontext_pimpl.h"
 #include "stream_pimpl.h"
 #include "codec_pimpl.h"

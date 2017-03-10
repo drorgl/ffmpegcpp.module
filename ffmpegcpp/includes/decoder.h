@@ -17,7 +17,6 @@
 #include "ffmpeg_exception.h"
 
 #include <memory>
-#include <string>
 
 namespace ffmpegcpp
 {

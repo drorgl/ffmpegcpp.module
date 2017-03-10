@@ -13,7 +13,7 @@
 #define _FFMPEGCPP_CONTEXT_PIMPL_H_
 
 #include "ffmpeg.h"
-#include "ffmpeg_includes.h"
+#include <algorithm>
 #include "dictionary_pimpl.h"
 #include "stream_pimpl.h"
 

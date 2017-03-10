@@ -33,13 +33,8 @@
 #include <memory>
 #include <atomic>
 #include <mutex>
-#include <map>
 #include <vector>
 #include <string>
-
-#include <algorithm>
-#include <iostream>
-#include <cctype>
 
 namespace ffmpegcpp
 {

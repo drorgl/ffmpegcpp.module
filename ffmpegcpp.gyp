@@ -144,7 +144,7 @@
 				'../ffmpeg.module/ffmpeg.gyp:swresample',
 				'../ffmpeg.module/ffmpeg.gyp:swscale',
 				'../opencv.module/opencv.gyp:core',
-				'../opencv.module/opencv.gyp:hal',
+				#'../opencv.module/opencv.gyp:hal',
 				'../alsa-lib.module/alsa-lib.gyp:alsa-lib',
 				'../v4l-utils.module/v4l-utils.gyp:v4l2',
 			],
@@ -230,7 +230,7 @@
 			'dependencies':[
 				'ffmpegcpp',
 				'../opencv.module/opencv.gyp:core',
-				'../opencv.module/opencv.gyp:hal',
+				#'../opencv.module/opencv.gyp:hal',
 			],
 			'defines':[],
 			'include_dirs':[

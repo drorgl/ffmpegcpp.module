@@ -16,7 +16,9 @@
 
 #include "stream.h"
 
-#include "ffmpeg_includes.h"
+extern "C" {
+	#include <libavformat/avformat.h>
+}
 
 namespace ffmpegcpp
 {

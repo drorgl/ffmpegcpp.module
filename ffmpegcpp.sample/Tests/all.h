@@ -75,10 +75,10 @@ static std::string tostring(T val)
 }
 
 #define SAMPLE_MAXIMUM_PACKETS 500
-#define SAMPLE_INPUT_FILENAME "../testdata/big buck bunny.mp4"
-#define SAMPLE_OUTPUT_MKV "../testdata/big buck bunny.mkv"
-#define SAMPLE_OUTPUT_WEBM "../testdata/big buck bunny.webm"
-#define SAMPLE_OUTPUT_MPEGTS "../testdata/big buck bunny.ts"
+#define SAMPLE_INPUT_FILENAME "./testdata/big buck bunny.mp4"
+#define SAMPLE_OUTPUT_MKV "./testdata/big buck bunny.mkv"
+#define SAMPLE_OUTPUT_WEBM "./testdata/big buck bunny.webm"
+#define SAMPLE_OUTPUT_MPEGTS "./testdata/big buck bunny.ts"
 
 
 #include "ffmpegtests.h"

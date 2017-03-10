@@ -13,7 +13,10 @@
 
 #include "ffmpeg.h"
 
-#include "ffmpeg_includes.h"
+extern "C" {
+	#include <libavdevice/avdevice.h>
+	#include <libavfilter/avfilter.h>
+}
 #include "formatcontext_pimpl.h"
 #include "memorycontext_pimpl.h"
 

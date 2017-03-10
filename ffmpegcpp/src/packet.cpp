@@ -13,7 +13,6 @@
 
 #include "packet.h"
 
-#include "ffmpeg_includes.h"
 #include "dictionary_pimpl.h"
 #include "packet_pimpl.h"
 

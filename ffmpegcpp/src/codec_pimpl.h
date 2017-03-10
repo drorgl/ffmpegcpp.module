@@ -12,7 +12,10 @@
 #ifndef _FFMPEGCPP_CODEC_PIMPL_H_
 #define _FFMPEGCPP_CODEC_PIMPL_H_
 
-#include "ffmpeg_includes.h"
+extern "C" {
+	#include <libavcodec/avcodec.h>
+}
+
 #include "../includes/codec.h"
 
 namespace ffmpegcpp
