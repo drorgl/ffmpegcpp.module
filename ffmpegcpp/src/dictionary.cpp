@@ -97,6 +97,7 @@ namespace ffmpegcpp
 			case option_type::FLAGS:
 			case option_type::INT:
 			case option_type::INT64:
+			case option_type::CHANNEL_LAYOUT:
 			case option_type::DURATION:
 			case option_type::PIXEL_FMT://maybe add pixel format to variant?
 			case option_type::SAMPLE_FMT://maybe add sample format to variant?
@@ -107,7 +108,6 @@ namespace ffmpegcpp
 			case option_type::REAL_CONST:
 				o.default_val = avopt->default_val.dbl;
 				break;
-			case option_type::COLOR:
 			case option_type::IMAGE_SIZE:
 			case option_type::VIDEO_RATE:
 			case option_type::STRING:
@@ -118,17 +118,41 @@ namespace ffmpegcpp
 					o.default_val = "";
 				}
 				break;
+			case option_type::COLOR:
+			{
+				std::stringstream ss;
+				ss << std::hex;
+				ss << ((uint8_t *)dst)[0] << ((uint8_t *)dst)[1] << ((uint8_t *)dst)[2] << ((uint8_t *)dst)[3];
+				o.default_val = ss.str();
+				//printf("0x%.2x%.2x%.2x%.2x",((uint8_t *)dst)[0], ((uint8_t *)dst)[1], ((uint8_t *)dst)[2], ((uint8_t *)dst)[3]);
+			}
+				break;
 			case option_type::RATIONAL:
 				o.default_val = rational(avopt->default_val.q.num, avopt->default_val.q.den);
 				break;
+			case option_type::BINARY:
+			{
+				int opt_size = *(int *)((void **)dst + 1);
+				uint8_t *opt_ptr = *(uint8_t **)dst;
+				std::stringstream ss;
+				ss << std::hex;
+				auto i = -1;
+				while (++i < opt_size) {
+					//printf("%.2x", opt_ptr[i]);
+					ss << opt_ptr[i];
+				}
+				o.default_val = ss.str();
+			}
+			
+				break;
 			//TODO: implement dict
-			//TODO: implement channel_layout
 			default:
 				assert(false && "Not Implemented!!");
 			}
 
 			retval.push_back(o);
 		}
+
 		return retval;
 	}
 

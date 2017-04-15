@@ -181,3 +181,8 @@ $RECYCLE.BIN/
 /testdata/big buck bunny.webm
 /build.android
 /build.vs2015
+/.vscode
+/node_modules
+/build.sources
+/native_configuration.json
+/npm-debug.log.*

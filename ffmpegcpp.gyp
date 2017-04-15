@@ -13,6 +13,7 @@
 		#'library' : 'shared_library',
 	},
 	'target_defaults': {
+		'win_delay_load_hook': 'false',
 		'msvs_settings': {
 			# This magical incantation is necessary because VC++ will compile
 			# object files to same directory... even if they have the same name!
@@ -91,6 +92,11 @@
 		},
 		
 		'conditions': [
+			['OS == "win"',{
+				'defines':[
+					'DELAYIMP_INSECURE_WRITABLE_HOOKS'
+				]
+			}],
 		  ['OS != "win"', {
 			'defines': [
 			  '_LARGEFILE_SOURCE',
@@ -133,31 +139,69 @@
 			'target_name': 'ffmpegcpp',
 			'type':'<(library)',
 			'dependencies':[
-				#'../ffmpeg.module/ffmpeg.gyp:compat',
-				'../ffmpeg.module/ffmpeg.gyp:avcodec',
-				'../ffmpeg.module/ffmpeg.gyp:avdevice',
-				'../ffmpeg.module/ffmpeg.gyp:avfilter',
-				'../ffmpeg.module/ffmpeg.gyp:avformat',
-				'../ffmpeg.module/ffmpeg.gyp:avresample',
-				'../ffmpeg.module/ffmpeg.gyp:avutil',
-				'../ffmpeg.module/ffmpeg.gyp:postproc',
-				'../ffmpeg.module/ffmpeg.gyp:swresample',
-				'../ffmpeg.module/ffmpeg.gyp:swscale',
-				'../opencv.module/opencv.gyp:core',
-				#'../opencv.module/opencv.gyp:hal',
-				'../alsa-lib.module/alsa-lib.gyp:alsa-lib',
-				'../v4l-utils.module/v4l-utils.gyp:v4l2',
+				#"<!(node -e \"require('ffmpeg.module')\"):avcodec",
+				#"<!(node -e \"require('ffmpeg.module')\"):avdevice",
+				#"<!(node -e \"require('ffmpeg.module')\"):avfilter",
+				#"<!(node -e \"require('ffmpeg.module')\"):avformat",
+				#"<!(node -e \"require('ffmpeg.module')\"):avresample",
+				#"<!(node -e \"require('ffmpeg.module')\"):avutil",
+				#"<!(node -e \"require('ffmpeg.module')\"):postproc",
+				#"<!(node -e \"require('ffmpeg.module')\"):swresample",
+				#"<!(node -e \"require('ffmpeg.module')\"):swscale",
+#
+				#"<!(node -e \"require('opencv.module')\"):core",
+				#"<!(node -e \"require('alsa-lib.module')\"):alsa-lib",
+				#"<!(node -e \"require('v4l-utils.module')\"):v4l2",
+
+				'<!@(nnbu-dependency --dependency ffmpeg)',
+				'<!@(nnbu-dependency --dependency opencv)',
+				'<!@(nnbu-dependency --dependency v4l)',
+				'<!@(nnbu-dependency --dependency alsa-lib)'
+				#'../ffmpeg.module/ffmpeg.gyp:avcodec',
+				#'../ffmpeg.module/ffmpeg.gyp:avdevice',
+				#'../ffmpeg.module/ffmpeg.gyp:avfilter',
+				#'../ffmpeg.module/ffmpeg.gyp:avformat',
+				#'../ffmpeg.module/ffmpeg.gyp:avresample',
+				#'../ffmpeg.module/ffmpeg.gyp:avutil',
+				#'../ffmpeg.module/ffmpeg.gyp:postproc',
+				#'../ffmpeg.module/ffmpeg.gyp:swresample',
+				#'../ffmpeg.module/ffmpeg.gyp:swscale',
+				#'../opencv.module/opencv.gyp:core',
+				#'../alsa-lib.module/alsa-lib.gyp:alsa-lib',
+				#'../v4l-utils.module/v4l-utils.gyp:v4l2',
 			],
 			
 			'include_dirs':[
 				'ffmpegcpp/includes',
+
+				'<!@(nnbu-dependency --headers ffmpeg)',
+				'<!@(nnbu-dependency --headers opencv)',
+				'<!@(nnbu-dependency --headers v4l)',
+				'<!@(nnbu-dependency --headers alsa-lib)'
 			],
 			'direct_dependent_settings': {
 				'include_dirs': [
 					'ffmpegcpp/includes'
 				],
 			 },
+			 'link_settings':{
+					'libraries':[
+						'<!@(nnbu-dependency --lib-fix --libs ffmpeg)',
+						'<!@(nnbu-dependency --lib-fix --libs opencv)',
+						'<!@(nnbu-dependency --lib-fix --libs v4l)',
+						'<!@(nnbu-dependency --lib-fix --libs alsa-lib)'
+					],
+			 },
 			 
+			 'copies':[
+				 {
+					 'destination':'<(PRODUCT_DIR)',
+					 'files':[
+						 		'<!@(nnbu-dependency --copy ffmpeg)',
+					 ]
+				 }
+			 ],
+
 			'sources':[
 				'ffmpegcpp/includes/codec.h',
 				'ffmpegcpp/includes/formatcontext.h',
@@ -229,14 +273,25 @@
 			'type':'executable',
 			'dependencies':[
 				'ffmpegcpp',
-				'../opencv.module/opencv.gyp:core',
+				#"<!(node -e \"require('opencv.module')\"):core",
+				'<!@(nnbu-dependency --dependency opencv)',
+				#'../opencv.module/opencv.gyp:core',
 				#'../opencv.module/opencv.gyp:hal',
 			],
 			'defines':[],
 			'include_dirs':[
+				'<!@(nnbu-dependency --headers opencv)',
 			],
 			'includes':[
 			 ],
+			 'link_settings':{
+					'libraries':[
+						'<!@(nnbu-dependency --lib-fix --libs opencv)',
+					],
+			 },
+
+
+
 			'sources':[
 				'ffmpegcpp.sample/ffmpegcpp.sample.cpp',
 				'ffmpegcpp.sample/Tests/all.h',

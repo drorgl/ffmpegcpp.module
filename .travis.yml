@@ -1,0 +1,56 @@
+dist:
+  - precise
+  - trusty
+sudo: true
+language: node_js
+node_js:
+  - "7.0.0"
+install:
+  - wget http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz
+  - tar xzf yasm-1.3.0.tar.gz
+  - cd yasm-1.3.0
+  - ./configure
+  - make -j 4
+  - sudo make install
+  - cd ..
+  - sudo rm /usr/bin/cpp /usr/bin/gcc /usr/bin/g++
+  - sudo ln -s /usr/bin/gcc-4.9 /usr/bin/gcc
+  - sudo ln -s /usr/bin/g++-4.9 /usr/bin/g++
+  - sudo ln -s /usr/bin/cpp-4.9 /usr/bin/cpp
+  - cc --version
+  - rem if [[ "$FFMPEG" == "1" ]]; then sudo apt-get install -y libavcodec-dev libavdevice-dev libavfilter-dev libavformat-dev libavresample-dev libavutil-dev libpostproc-dev libswresample-dev libswscale-dev ; fi
+  - if [[ "$ALSA" == "1" ]]; then sudo apt-get install -y libasound2-dev ; fi
+  - if [[ "$LAME" == "1" ]]; then sudo apt-get install -y libmp3lame-dev ; fi
+  - if [[ "$VPX" == "1" ]]; then sudo apt-get install -y libvpx-dev ; fi
+  - if [[ "$X264" == "1" ]]; then sudo apt-get install -y libx264-dev ; fi
+  - if [[ "$V4L" == "1" ]]; then sudo apt-get install -y libv4l-dev ; fi
+  - if [[ "$OPENCV" == "1" ]]; then sudo apt-get install -y libopencv-dev ; fi
+  - if [[ "$ZLIB" == "1" ]]; then sudo apt-get install -y zlib1g-dev ; fi
+  - npm install
+  - npm run standalone
+script:
+  - npm test
+env:
+#libglob? libjpeg-turbo8-dev?
+  - FFMPEG=0 ALSA=0 LAME=0 VPX=0 X264=0 V4L=0 OPENCV=0 ZLIB=0
+  - FFMPEG=1 ALSA=0 LAME=0 VPX=0 X264=0 V4L=0 OPENCV=0 ZLIB=0
+  - FFMPEG=0 ALSA=1 LAME=0 VPX=0 X264=0 V4L=0 OPENCV=0 ZLIB=0
+  - FFMPEG=0 ALSA=0 LAME=1 VPX=0 X264=0 V4L=0 OPENCV=0 ZLIB=0
+  - FFMPEG=0 ALSA=0 LAME=0 VPX=1 X264=0 V4L=0 OPENCV=0 ZLIB=0
+  - FFMPEG=0 ALSA=0 LAME=0 VPX=0 X264=1 V4L=0 OPENCV=0 ZLIB=0
+  - FFMPEG=0 ALSA=0 LAME=0 VPX=0 X264=0 V4L=1 OPENCV=0 ZLIB=0
+  - FFMPEG=0 ALSA=0 LAME=0 VPX=0 X264=0 V4L=0 OPENCV=1 ZLIB=0
+  - FFMPEG=0 ALSA=0 LAME=0 VPX=0 X264=0 V4L=0 OPENCV=0 ZLIB=1
+  - FFMPEG=1 ALSA=1 LAME=1 VPX=1 X264=1 V4L=1 OPENCV=1 ZLIB=1
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - zlib1g-dev 
+      - libv4l-dev
+      - p7zip-full
+      - yasm
+      - g++-4.9
+      - gcc-4.9
+      - cpp-4.9

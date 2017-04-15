@@ -1,0 +1,33 @@
+{
+  "name": "ffmpegcpp.module",
+  "version": "0.1.0",
+  "description": "ffmpeg c++ wrapper, designed to be an object oriented wrapper of the popular ffmpeg",
+  "main": "include_dirs.js",
+  "scripts": {
+    "install": "echo call standalone to build and install this module",
+    "preinstall": "git submodule init && git submodule update || true",
+    "standalone": "nnbu-configure && node-gyp configure  && node-gyp build",
+    "test": "nnbu-run ./build/Release/ffmpegcpp.sample",
+    "pack": "nnbu-pack -s"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drorgl/ffmpegcpp.module.git"
+  },
+  "keywords": [
+    "ffmpeg",
+    "c++"
+  ],
+  "author": "Dror Gluska",
+  "license": "BSD-3-Clause",
+  "gypfile": false,
+  "bugs": {
+    "url": "https://github.com/drorgl/ffmpegcpp.module/issues"
+  },
+  "homepage": "https://github.com/drorgl/ffmpegcpp.module#readme.md",
+  "devDependencies": {},
+  "dependencies": {
+    "node-gyp": "drorgl/node-gyp",
+    "node-native-build-utilities": "drorgl/node-native-build-utilities"
+  }
+}

@@ -26,7 +26,7 @@ extern "C" {
 
 #include "frame_pimpl.h"
 
-#include <opencv2/core.hpp>
+#include <opencv2/core/core.hpp>
 
 namespace ffmpegcpp
 {

@@ -15,7 +15,7 @@
 #include <ffmpeg.h>
 #include <memory>
 
-#include <opencv2/core.hpp>
+#include <opencv2/core/core.hpp>
 
 
 
