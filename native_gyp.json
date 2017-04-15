@@ -184,18 +184,18 @@
                 "https://github.com/drorgl/ffmpeg.module.git#nnbu@ffmpeg.gyp:postproc",
                 "https://github.com/drorgl/ffmpeg.module.git#nnbu@ffmpeg.gyp:swresample",
                 "https://github.com/drorgl/ffmpeg.module.git#nnbu@ffmpeg.gyp:swscale"
-            ]//,
-            // "archived_sources": [
-            //     "https://github.com/drorgl/ffmpeg.module/releases/download/v2.6.3/ffmpeg.module.v2.6.3.7z@ffmpeg.gyp:avcodec",
-            //     "https://github.com/drorgl/ffmpeg.module/releases/download/v2.6.3/ffmpeg.module.v2.6.3.7z@ffmpeg.gyp:avdevice",
-            //     "https://github.com/drorgl/ffmpeg.module/releases/download/v2.6.3/ffmpeg.module.v2.6.3.7z@ffmpeg.gyp:avfilter",
-            //     "https://github.com/drorgl/ffmpeg.module/releases/download/v2.6.3/ffmpeg.module.v2.6.3.7z@ffmpeg.gyp:avformat",
-            //     "https://github.com/drorgl/ffmpeg.module/releases/download/v2.6.3/ffmpeg.module.v2.6.3.7z@ffmpeg.gyp:avresample",
-            //     "https://github.com/drorgl/ffmpeg.module/releases/download/v2.6.3/ffmpeg.module.v2.6.3.7z@ffmpeg.gyp:avutil",
-            //     "https://github.com/drorgl/ffmpeg.module/releases/download/v2.6.3/ffmpeg.module.v2.6.3.7z@ffmpeg.gyp:postproc",
-            //     "https://github.com/drorgl/ffmpeg.module/releases/download/v2.6.3/ffmpeg.module.v2.6.3.7z@ffmpeg.gyp:swresample",
-            //     "https://github.com/drorgl/ffmpeg.module/releases/download/v2.6.3/ffmpeg.module.v2.6.3.7z@ffmpeg.gyp:swscale"
-            // ]
+            ],
+             "archived_sources": [
+                 "https://github.com/drorgl/ffmpeg.module/releases/download/v2.6.3/ffmpeg.module.v2.6.3.7z@ffmpeg.gyp:avcodec",
+                 "https://github.com/drorgl/ffmpeg.module/releases/download/v2.6.3/ffmpeg.module.v2.6.3.7z@ffmpeg.gyp:avdevice",
+                 "https://github.com/drorgl/ffmpeg.module/releases/download/v2.6.3/ffmpeg.module.v2.6.3.7z@ffmpeg.gyp:avfilter",
+                 "https://github.com/drorgl/ffmpeg.module/releases/download/v2.6.3/ffmpeg.module.v2.6.3.7z@ffmpeg.gyp:avformat",
+                 "https://github.com/drorgl/ffmpeg.module/releases/download/v2.6.3/ffmpeg.module.v2.6.3.7z@ffmpeg.gyp:avresample",
+                 "https://github.com/drorgl/ffmpeg.module/releases/download/v2.6.3/ffmpeg.module.v2.6.3.7z@ffmpeg.gyp:avutil",
+                 "https://github.com/drorgl/ffmpeg.module/releases/download/v2.6.3/ffmpeg.module.v2.6.3.7z@ffmpeg.gyp:postproc",
+                 "https://github.com/drorgl/ffmpeg.module/releases/download/v2.6.3/ffmpeg.module.v2.6.3.7z@ffmpeg.gyp:swresample",
+                 "https://github.com/drorgl/ffmpeg.module/releases/download/v2.6.3/ffmpeg.module.v2.6.3.7z@ffmpeg.gyp:swscale"
+             ]
         },
         "alsa-lib": {
             "packages": [
@@ -208,10 +208,10 @@
             "libraries": {},
             "sources": [
                 "https://github.com/drorgl/alsa-lib.module.git#nnbu@alsa-lib.gyp:alsa-lib"
-            ]//,
-            // "archived_sources": [
-            //     "https://github.com/drorgl/alsa-lib.module/releases/download/v1.0.28/alsa-lib.module.v1.0.28.7z@alsa-lib.gyp:alsa-lib"
-            // ]
+            ],
+            "archived_sources": [
+                "https://github.com/drorgl/alsa-lib.module/releases/download/v1.0.28/alsa-lib.module.v1.0.28.7z@alsa-lib.gyp:alsa-lib"
+            ]
         },
         "v4l": {
             "packages": [
@@ -224,10 +224,10 @@
             "libraries": {},
             "sources": [
                 "https://github.com/drorgl/v4l-utils.module.git#nnbu@v4l-utils.gyp:v4l2"
-            ]//,
-            // "archived_sources": [
-            //     "https://github.com/drorgl/v4l-utils.module/releases/download/v1.0.1/v4l-utils.module.v1.0.1.7z@v4l-utils.gyp:v4l2"
-            // ]
+            ],
+            "archived_sources": [
+                "https://github.com/drorgl/v4l-utils.module/releases/download/v1.0.1/v4l-utils.module.v1.0.1.7z@v4l-utils.gyp:v4l2"
+            ]
         },
         "opencv": {
             "packages": [
@@ -240,10 +240,10 @@
             "libraries": {},
             "sources": [
                 "https://github.com/drorgl/opencv.module.git#nnbu@opencv.gyp:core"
-            ]//,
-            ////"archived_sources": [
-			////	"https://github.com/drorgl/opencv.module/releases/download/v3.2.0/opencv.module.v3.2.0.7z@opencv.gyp:core"
-			//]
+            ],
+            "archived_sources": [
+				"https://github.com/drorgl/opencv.module/releases/download/v3.2.0/opencv.module.v3.2.0.7z@opencv.gyp:core"
+			]
         }
     }
 }
